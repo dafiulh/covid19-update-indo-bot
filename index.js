@@ -1,10 +1,10 @@
 // const axios = require("axios");
-// const cron = require("node-cron");
+const cron = require("node-cron");
 const data = require("./lib/data.js");
 
 require("dotenv").config();
 
-// let cronExpr = "52 18 * * *";
+let cronExpr = "13 19 * * *";
 
 async function postToFacebook(){
     let {total, indonesia, affected, time} = await data();
@@ -36,4 +36,4 @@ async function postToFacebook(){
 console.log("server is running now ...");
 
 postToFacebook();
-// cron.schedule(cronExpr, postToFacebook, { timezone: "Asia/Jakarta" });
+cron.schedule(cronExpr, postToFacebook, { timezone: "Asia/Jakarta" });
