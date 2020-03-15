@@ -1,10 +1,10 @@
-// const axios = require("axios");
+const axios = require("axios");
 const cron = require("node-cron");
 const data = require("./lib/data.js");
 
 require("dotenv").config();
 
-let cronExpr = "45 19 * * *";
+let cronExpr = "0 20 * * *";
 
 async function postToFacebook(){
     let {total, indonesia, affected, time} = await data();
@@ -28,7 +28,7 @@ async function postToFacebook(){
     Info selengkapnya dapat diakses di http://thewuhanvirus.com`;
     let url = "https://graph.facebook.com/" + process.env.PAGE_ID + "/feed?access_token=" + process.env.ACCESS_TOKEN + "&message=" + encodeURI(msg);
     
-    console.log(msg); // await axios.post(url);
+    await axios.post(url);
 
     console.log("posted to facebook on " + new Date().toLocaleString());
 }
