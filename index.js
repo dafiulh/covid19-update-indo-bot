@@ -31,9 +31,11 @@ async function postToFacebook(){
     await axios.post(url);
 }
 
+console.log("server is running now");
+
+postToFacebook();
+
 cron.schedule(cronExpr, () => {
     postToFacebook();
     console.log("posted to facebook on " + new Date().toLocaleString());
 }, { timezone: "Asia/Jakarta" });
-
-console.log("server is running now");
