@@ -4,7 +4,7 @@ const data = require("./lib/data.js");
 
 require("dotenv").config();
 
-let cronExpr = "39 19 * * *";
+let cronExpr = "45 19 * * *";
 
 async function postToFacebook(){
     let {total, indonesia, affected, time} = await data();
