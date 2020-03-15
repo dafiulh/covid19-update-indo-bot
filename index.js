@@ -4,7 +4,7 @@ const data = require("./lib/data.js");
 
 require("dotenv").config();
 
-let cronExpr = "0 6,18 * * *";
+let cronExpr = "52 18 * * *";
 
 async function postToFacebook(){
     let {total, indonesia, affected, time} = await data();
@@ -29,13 +29,11 @@ async function postToFacebook(){
     let url = "https://graph.facebook.com/" + process.env.PAGE_ID + "/feed?access_token=" + process.env.ACCESS_TOKEN + "&message=" + encodeURI(msg);
     
     await axios.post(url);
+
+    console.log("posted to facebook on " + new Date().toLocaleString());
 }
 
-console.log("server is running now");
+console.log("server is running now ...");
 
 postToFacebook();
-
-cron.schedule(cronExpr, () => {
-    postToFacebook();
-    console.log("posted to facebook on " + new Date().toLocaleString());
-}, { timezone: "Asia/Jakarta" });
+cron.schedule(cronExpr, postToFacebook, { timezone: "Asia/Jakarta" });
