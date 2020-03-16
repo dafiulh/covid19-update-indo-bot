@@ -3,6 +3,7 @@ const cron = require("node-cron");
 const data = require("./lib/data.js");
 
 require("dotenv").config();
+process.env.TZ = "Asia/Jakarta";
 
 let cronExpr = "0 */6 * * *";
 
