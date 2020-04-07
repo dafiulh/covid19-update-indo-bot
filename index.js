@@ -11,18 +11,18 @@ async function postToFacebook(){
     let {total, indonesia, affected, time} = await data();
     let msg = `Update Terbaru Virus Corona (COVID-19) di Indonesia
 
-- Terinfeksi: ${indonesia.infections}
-- Aktif: ${indonesia.active_cases}
+- Terkonfirmasi: ${indonesia.infections}
+- Dirawat: ${indonesia.active_cases}
 - Kematian: ${indonesia.deaths}
 - Sembuh: ${indonesia.recovered}
 
 Jumlah keseluruhan korban di seluruh dunia
-- Terinfeksi: ${total.infections}
-- Aktif: ${total.active_cases}
+- Terkonfirmasi: ${total.infections}
+- Dirawat: ${total.active_cases}
 - Kematian: ${total.deaths}
-- Telah pulih: ${total.recovered}
+- Sembuh: ${total.recovered}
 - Tingkat kematian: ${total.mortality_rate}
-- Tingkat pemulihan: ${total.recovery_rate}
+- Tingkat kesembuhan: ${total.recovery_rate}
 - Jumlah terdampak: ${affected} negara
 
 Data diperbarui pada ${time}
